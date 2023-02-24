@@ -18,6 +18,14 @@ async def hello(message: Message):
     await message.answer("Приветствую. Я ваш помощник в мире самостоятельного изучения предметов! Я помогу вам изучить "
                          "предметы, которые вы желаете изучить. Какой предмет вы хотите изучить?")
 
+@dp.message_handler(commands=['text'])
+async def text(message):
+    await message.answer(f"Хорошо, по какой книге вы хотите изучить {message} (Напишите имя и автора)?")
+
+@dp.message_handler(commands=['text'])
+async def text1(message):
+    await message.answer("Вот ваша книга")
+
 @dp.message_handler(commands="help")
 async def help(message: Message):
     await message.answer("Я помогу вам освоить необходимые вам предметы, почастям, ежедневно отправляя один параграф. "

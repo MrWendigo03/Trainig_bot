@@ -24,7 +24,7 @@ async def text(message):
 
 @dp.message_handler(commands=['text'])
 async def text1(message):
-    await message.answer("Вот ваша книга")
+    await message.answer("Вот ваша книга: ")
 
 @dp.message_handler(commands="help")
 async def help(message: Message):

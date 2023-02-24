@@ -3,7 +3,6 @@ from sqlalchemy import create_engine, Column, Integer, String, Date, ForeignKey,
 from sqlalchemy.orm import declarative_base, sessionmaker
 from sqlalchemy.sql.functions import user
 
-from bot import text
 
 engine = create_engine("postgresql://postgres:postgres@localhost:5432/transactions")
 Base = declarative_base(bind=engine)
@@ -15,7 +14,6 @@ class Students(Base):
 
     id = Column(Integer(), primary_key=True)
     full_name = Column(String(50), unique=True, nullable=False)
-    object_studied = Column(String(50), nullable=False)
 
     def __str__(self):
         return f"Author: {self.id}"

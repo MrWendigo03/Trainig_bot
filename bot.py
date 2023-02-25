@@ -20,7 +20,7 @@ async def hello(message: Message):
 
 @dp.message_handler(commands=['text'])
 async def text(message):
-    await message.answer(f"Хорошо, по какой книге вы хотите изучить {message} (Напишите имя и автора)?")
+    await message.answer(f"Хорошо, по какой книге вы хотите изучить предмет {message} (Напишите имя и автора)?")
 
 @dp.message_handler(commands=['text'])
 async def text1(message):

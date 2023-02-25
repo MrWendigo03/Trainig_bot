@@ -9,11 +9,11 @@ Base = declarative_base(bind=engine)
 
 class Students(Base):
 
-    __tablename__ = "Обучаемый"
+    __tablename__ = "Uchenik"
 
     id = Column(Integer(), primary_key=True)
     full_name = Column(String(50), unique=True, nullable=False)
-    subject = Column(ForeignKey("o_id"), nullable=False)
+    subject = Column(ForeignKey("Predmety.id"), nullable=False)
 
     def __str__(self):
         return f"Students: {self.id}"
@@ -23,10 +23,10 @@ class Students(Base):
 
 class Object(Base):
 
-    __tablename__ = "Предметы"
+    __tablename__ = "Predmety"
 
-    o_id = Column(Integer(), primary_key=True)
-    name = Column(String(150), nullable=False)
+    id = Column(Integer(), primary_key=True)
+    name = Column(String(50), nullable=False)
 
     def __str__(self):
         return f"Object: {self.id}"

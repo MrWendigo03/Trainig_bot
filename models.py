@@ -1,6 +1,7 @@
 from aiogram.types import message
-from sqlalchemy import create_engine, Column, Integer, String, Date, ForeignKey, and_, or_, not_, func, select, desc
+from sqlalchemy import create_engine, Column, Integer, String, ForeignKey
 from sqlalchemy.orm import declarative_base, sessionmaker
+from bot import text1
 
 
 engine = create_engine("postgresql://postgres:postgres@localhost:5432/transactions")
@@ -9,11 +10,10 @@ Base = declarative_base(bind=engine)
 
 class Students(Base):
 
-    __tablename__ = "Uchenik"
+    __tablename__ = "Ученик"
 
     id = Column(Integer(), primary_key=True)
     full_name = Column(String(50), unique=True, nullable=False)
-    subject = Column(ForeignKey("Predmety.id"), nullable=False)
 
     def __str__(self):
         return f"Students: {self.id}"
@@ -23,7 +23,7 @@ class Students(Base):
 
 class Object(Base):
 
-    __tablename__ = "Predmety"
+    __tablename__ = "Предметы"
 
     id = Column(Integer(), primary_key=True)
     name = Column(String(50), nullable=False)
@@ -33,3 +33,7 @@ class Object(Base):
 
     def __repr__(self):
         return f"Object: {self.id}"
+
+class Train(Base):
+
+    __tablename__ == "Обучение"
